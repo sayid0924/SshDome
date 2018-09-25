@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 配置Struts2的常量 -->
+	<constant name="struts.action.extension" value="action"/>
+	
+	<!-- 配置Action -->
+	<package name="src" extends="struts-default" namespace="/">
+		<action name="customer_*" class="com.web.action.CustomerAction" method="save">
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<!--<action name="login" class="com.app.action.LoginAction">-->
+			<!--<result name="success">/WEB-INF/jsp/login.jsp</result>-->
+		<!--</action>-->
+
+	</package>
+
+</struts>
