@@ -2,9 +2,12 @@ package com.service.impl;
 
 import com.dao.UserDao;
 import com.domain.User;
+import com.domain.User;
 import com.service.UserService;
 import com.utils.MD5Utils;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 
 /**
@@ -23,13 +26,46 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	// 业务层注册用户的方法
-	public void regist(User user) {
-		// 对密码进行加密处理：
-		user.setUser_password(MD5Utils.md5(user.getUser_password()));
-		user.setUser_state("1");
-		// 调用DAO
+	public void save(User user) {
+//	System.out.println("Service中的save方法执行了...");
 		userDao.save(user);
 	}
+
+	@Override
+	public void update(User User) {
+		userDao.update(User);
+	}
+
+	@Override
+	public void delete(User User) {
+		userDao.delete(User);
+	}
+
+	@Override
+	public User findById(Long cust_id) {
+		return userDao.findById(cust_id);
+	}
+
+	@Override
+	public User findByName(User user) {
+		return userDao.findByName(user);
+	}
+
+	@Override
+	public List<User> findAllByHQL() {
+		return userDao.findAllByHQL();
+	}
+
+	@Override
+	public List<User> findAllByQBC() {
+		return userDao.findAllByQBC();
+	}
+
+	@Override
+	public List<User> findAllByNamedQuery() {
+		return userDao.findAllByNamedQuery();
+	}
+
+
 
 }

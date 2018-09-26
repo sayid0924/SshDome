@@ -42,7 +42,6 @@
 		<!-- 设置映射文件 -->
 		<property name="mappingResources">
 			<list>
-				<value>com/domain/Customer.hbm.xml</value>
 				<value>com/domain/User.hbm.xml</value>
 			</list>
 		</property>
@@ -50,28 +49,17 @@
 	</bean>
 	
 	<!-- 配置Action=================== -->
-	<bean id="customerAction" class="com.web.action.CustomerAction" scope="prototype">
-		<property name="customerService" ref="customerService"/>
-	</bean>
-
 	<bean id="userAction" class="com.web.action.UserAction" scope="prototype">
 		<property name="userService" ref="userService"/>
 	</bean>
 	
 	<!-- 配置Service================== -->
-	<bean id="customerService" class="com.service.impl.CustomerServiceImpl">
-		<property name="customerDao" ref="customerDao"/>
-	</bean>
 
 	<bean id="userService" class="com.service.impl.UserServiceImpl">
 		<property name="userDao" ref="userDao"/>
 	</bean>
 	
 	<!-- 配置DAO====================== -->
-	<bean id="customerDao" class="com.dao.impl.CustomerDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
-
 	<bean id="userDao" class="com.dao.impl.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
