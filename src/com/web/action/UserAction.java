@@ -44,6 +44,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	 * 用户注册的方法:regist
 	 */
 
+
 	public String userRegist(){
 		// 对密码进行加密处理：
 		user.setUser_password(MD5Utils.md5(user.getUser_password()));
